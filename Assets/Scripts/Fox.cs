@@ -35,6 +35,7 @@ public class Fox : MonoBehaviour
         availableJumps = totalJumps;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+       AudioManager.instance.PlayMusic("ambient");
     }
     void Update()
     {
@@ -46,7 +47,10 @@ public class Fox : MonoBehaviour
             return;
         }
 
-
+        if(transform.position.y < -20)
+        {
+            Die();
+        }
         horizontalValue = Input.GetAxisRaw("Horizontal");
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {

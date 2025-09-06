@@ -13,7 +13,8 @@ public class Mushroom : MonoBehaviour
             {
                 mushroomText.text = "Mushroom: Yes";
             }
-            
+
+            AudioManager.instance.PlaySFX("mushroom");
             Destroy(gameObject);
         }
     }
